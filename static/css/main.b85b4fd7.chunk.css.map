@@ -1,0 +1,1 @@
+{"version":3,"sources":["/home/alien/git repos/tax-calculator/src/stylesheets/index.css"],"names":[],"mappings":"AAAA,KACE,YAAc,CACf,AACD,UACE,YAAa,CAEd","file":"main.b85b4fd7.chunk.css","sourcesContent":["body{\n  padding: 10px;\n}\n.tax-info{\n  display:grid;\n\n}\n.tax-info div{\n\n}\n"]}
