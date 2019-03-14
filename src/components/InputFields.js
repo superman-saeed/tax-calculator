@@ -1,6 +1,7 @@
 import React from "react";
 import {Label,Input,Card} from "semantic-ui-react";
 
+
 class CediField extends React.Component{
   constructor(props){
     super(props);
@@ -24,20 +25,20 @@ class CediField extends React.Component{
   }
 }
 
-class AllFields extends React.Component{
+class InputFields extends React.Component{
   constructor(props){
     super(props);
     this.grossChange = this.grossChange.bind(this);
     this.allowanceChange = this.allowanceChange.bind(this);
+
   }
 grossChange(event){
-  var text =event.target.value;
-  console.log(text);
+  this.props.grossChange(event);
 }
 allowanceChange(event){
-  var text =event.target.value;
-  console.log(text);
+  this.props.allowanceChange(event);
 }
+
 render(){
   return(
     <div>
@@ -59,4 +60,4 @@ render(){
   )
 }
 }
-export default AllFields;
+export default InputFields;
