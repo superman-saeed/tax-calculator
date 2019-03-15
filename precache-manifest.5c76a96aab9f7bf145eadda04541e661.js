@@ -20,28 +20,28 @@ self.__precacheManifest = [
     "url": "/tax-calculator/static/js/runtime~main.34d5336b.js"
   },
   {
-    "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
-    "url": "/tax-calculator/static/media/outline-icons.ef60a4f6.woff"
-  },
-  {
     "revision": "cd6c777f1945164224dee082abaea03a",
     "url": "/tax-calculator/static/media/outline-icons.cd6c777f.woff2"
   },
   {
-    "revision": "701ae6abd4719e9c2ada3535a497b341",
-    "url": "/tax-calculator/static/media/outline-icons.701ae6ab.eot"
+    "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
+    "url": "/tax-calculator/static/media/outline-icons.ef60a4f6.woff"
   },
   {
     "revision": "9c74e172f87984c48ddf5c8108cabe67",
     "url": "/tax-calculator/static/media/flags.9c74e172.png"
   },
   {
-    "revision": "0ab54153eeeca0ce03978cc463b257f7",
-    "url": "/tax-calculator/static/media/icons.0ab54153.woff2"
+    "revision": "701ae6abd4719e9c2ada3535a497b341",
+    "url": "/tax-calculator/static/media/outline-icons.701ae6ab.eot"
   },
   {
     "revision": "ad97afd3337e8cda302d10ff5a4026b8",
     "url": "/tax-calculator/static/media/outline-icons.ad97afd3.ttf"
+  },
+  {
+    "revision": "0ab54153eeeca0ce03978cc463b257f7",
+    "url": "/tax-calculator/static/media/icons.0ab54153.woff2"
   },
   {
     "revision": "4ae4c3778e41e3682e8b",
@@ -84,7 +84,7 @@ self.__precacheManifest = [
     "url": "/tax-calculator/static/css/1.d055cb42.chunk.css"
   },
   {
-    "revision": "a4f0fa262e3e5219749e31519b91150b",
+    "revision": "89a6cfbfd7ac2323f689400d188822af",
     "url": "/tax-calculator/index.html"
   }
 ];
