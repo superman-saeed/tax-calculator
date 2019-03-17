@@ -15,9 +15,9 @@ class TaxInfo extends React.Component{
       <div>
       <Divider horizontal> Details</Divider>
       <ul>
-      <li>SSNIT: {this.props.ssnit.toFixed(2)}</li>
+      <li>SSNIT(5.5%): {this.props.ssnit.toFixed(2)}</li>
       <li>Tax: {this.props.tax.toFixed(2)}</li>
-      <li>Total Dedutions- 600 </li>
+      <li>Total Dedutions: {this.props.total.toFixed(2)} </li>
       </ul>
       </div>
      </div>

@@ -56,7 +56,7 @@ class Calculator extends React.Component{
       <div className="parent-block">
       <Card fluid>
       <Card.Content>
-      <Card.Header>Tax Calculator</Card.Header>
+      <h2><span>PAYE</span> Tax Calculator</h2>
       <InputFields
       grossChange ={this.grossChange}
       allowanceChange ={this.allowanceChange}
@@ -64,7 +64,9 @@ class Calculator extends React.Component{
       <TaxInfo
       income={this.state.netIncome}
       ssnit={this.state.ssnit}
-      tax ={this.state.tax}/>
+      tax ={this.state.tax}
+      total = {this.state.tax + this.state.ssnit }
+      />
 
       </Card.Content>
       </Card>
@@ -72,6 +74,7 @@ class Calculator extends React.Component{
       <Card fluid>
       <Card.Content>
       <Card.Description>Disclaimer: We do our best to ensure the accuracy of this tool but we cannot be held responsible for any errors.</Card.Description>
+       Tax Rate(2019) <a href="https://gra.gov.gh/index.php/tax-rates-2019/">Ghana Revenue Authority</a><br/>
        Developer <a href="https://superman-saeed.github.io">Saeed Abdul-Wahab</a>
       </Card.Content>
       </Card>
