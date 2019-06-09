@@ -2,13 +2,13 @@ import React from "react";
 import pic from "../../image/ghana.png";
 
 //to display cash table
-const Cash= ({title,hint,onchange})=>{
+const Cash= ({title,hint,onchange,name})=>{
   return(
     <div className="cash-input">
      <div><span className="desc">{title}</span></div>
      <div>
        <span className="sp">GHS</span>
-       <input type="number" onChange={onchange} placeholder={hint} />
+       <input type="number" name={name} onChange={onchange} placeholder={hint} />
      </div>
     </div>
   );
@@ -33,15 +33,28 @@ const Deduction=({ssnit,tax, total}) =>{
       <h2> 360ghc </h2>
       </div>);
 }
-
+const initialiseState={
+   grossInput:0,
+   allowanceInput:0,
+   annualChecker:false,
+   taxDeduction:0,
+   ssnitDeduction:0,
+   netIncome:0
+}
 class App extends React.Component{
   constructor(props){
     super(props);
+    this.state = initialiseState;
+  }
+
+  cashChange=({target})=>{
+    const { name, value } = target;
+    this.setState({
+      [name]:value,
+    });
+    console.log(target.name);
   }
   // to render app
-  cashChange=(event)=>{
-    console.log(event.target.value);
-  }
   render(){
     return(
       <div className="app">
@@ -52,11 +65,14 @@ class App extends React.Component{
         <Cash
         onchange={(e)=>this.cashChange(e)}
         title="Monthly Gross Income* "
+        name="grossInput"
         hint="cash income" />
 
         <Cash
         onchange={this.cashChange}
-        title="Allowance" hint="cash,rent,fuel"
+        title="Allowance"
+        name="allowanceInput"
+        hint="cash,rent,fuel"
         />
         </div>
         <AnnualChecker />
