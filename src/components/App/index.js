@@ -1,4 +1,5 @@
 import React from "react";
+import Details from "../Details";
 import pic from "../../image/ghana.png";
 
 //to display cash table
@@ -33,6 +34,14 @@ const Deduction=({ssnit,tax, total}) =>{
       <h2> 360ghc </h2>
       </div>);
 }
+
+const Footer=()=>{
+  return(
+    <div style={{color:"red", textAlign:"center"}}>
+    Made with <span>&#128151;</span> by <a href="htt">Saeed</a>
+    </div>
+  )
+}
 const initialiseState={
    grossInput:0,
    allowanceInput:0,
@@ -49,8 +58,9 @@ class App extends React.Component{
 
   cashChange=({target})=>{
     const { name, value } = target;
+    const val = Number(value);
     this.setState({
-      [name]:value,
+      [name]:val,
     });
     console.log(target.name);
   }
@@ -78,6 +88,7 @@ class App extends React.Component{
         <AnnualChecker />
         <Deduction tax={300} ssnit={140}/>
       </div>
+      <Footer />
       </div>);
   }
 }
