@@ -6,7 +6,7 @@ body{
   box-sizing: border-box;
   font-family: arial;
 }
-.app{
+.calculator{
   margin:50px 10px;
   border: 1px solid #ccc;
   padding: 0px 15px 15px 15px;
@@ -31,8 +31,10 @@ img{
   border-top: 2px solid #ccc;
 
 }
-.main h3{
+.input-layout{
   margin-top: 50px;
+}
+.input-layout h3{
   text-align: center;
 }
 .cal{
@@ -131,8 +133,8 @@ img{
   transform: rotate(45deg);
 }
 @media (min-width:500px){
-  .app{
-    width:500px;
+  .calculator{
+    max-width:700px;
     margin: 80px auto;
   }
 
@@ -150,7 +152,5 @@ img{
     flex-basis: calc(50% - 10px);
 
   }
-
-
 
 }
