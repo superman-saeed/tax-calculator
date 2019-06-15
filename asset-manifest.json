@@ -1,16 +1,13 @@
 {
-  "main.css": "/tax-calculator/static/css/main.dae63564.chunk.css",
-  "main.js": "/tax-calculator/static/js/main.4ae4c377.chunk.js",
-  "main.js.map": "/tax-calculator/static/js/main.4ae4c377.chunk.js.map",
-  "static/css/1.d055cb42.chunk.css": "/tax-calculator/static/css/1.d055cb42.chunk.css",
-  "static/js/1.2e46b916.chunk.js": "/tax-calculator/static/js/1.2e46b916.chunk.js",
-  "static/js/1.2e46b916.chunk.js.map": "/tax-calculator/static/js/1.2e46b916.chunk.js.map",
+  "main.css": "/tax-calculator/static/css/main.eb6a3879.chunk.css",
+  "main.js": "/tax-calculator/static/js/main.c87a3fb0.chunk.js",
+  "main.js.map": "/tax-calculator/static/js/main.c87a3fb0.chunk.js.map",
+  "static/js/1.59bf4186.chunk.js": "/tax-calculator/static/js/1.59bf4186.chunk.js",
+  "static/js/1.59bf4186.chunk.js.map": "/tax-calculator/static/js/1.59bf4186.chunk.js.map",
   "runtime~main.js": "/tax-calculator/static/js/runtime~main.34d5336b.js",
   "runtime~main.js.map": "/tax-calculator/static/js/runtime~main.34d5336b.js.map",
-  "static/media/semantic.min.css": "/tax-calculator/static/media/brand-icons.a1a749e8.svg",
-  "static/css/main.dae63564.chunk.css.map": "/tax-calculator/static/css/main.dae63564.chunk.css.map",
-  "static/css/1.d055cb42.chunk.css.map": "/tax-calculator/static/css/1.d055cb42.chunk.css.map",
+  "static/css/main.eb6a3879.chunk.css.map": "/tax-calculator/static/css/main.eb6a3879.chunk.css.map",
   "index.html": "/tax-calculator/index.html",
-  "precache-manifest.5c76a96aab9f7bf145eadda04541e661.js": "/tax-calculator/precache-manifest.5c76a96aab9f7bf145eadda04541e661.js",
+  "precache-manifest.6f73c3732b0ca0755735f529d7beeffd.js": "/tax-calculator/precache-manifest.6f73c3732b0ca0755735f529d7beeffd.js",
   "service-worker.js": "/tax-calculator/service-worker.js"
 }
