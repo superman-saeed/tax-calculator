@@ -132,6 +132,26 @@ img{
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+.tax-table{
+  width: 100%;
+  border: 1px solid #000;
+  border-collapse: collapse;
+
+
+}
+.tax-table thead{
+   background-color: #ce1126;
+   color: #fff;
+
+}
+ .tax-table td{
+  border: 1px solid #000;
+  padding: 10px;
+  text-align: center;
+
+}
+
+
 @media (min-width:500px){
   .calculator{
     max-width:650px;

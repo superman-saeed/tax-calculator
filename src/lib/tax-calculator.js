@@ -12,7 +12,7 @@ function taxCalculator(salary,allowance){
   if(!(isPositiveNumber(salary))) throw new Error("Expects a positive number as gross income");
   if(!(isPositiveNumber(allowance))) throw new Error("Expects a positive number as allowance");
   const  ssnit = salary * SSNIT;
-  console.log(ssnit);
+
   const taxableIncome = (salary + allowance) - ssnit;
   return {
   ssnitDeduction: ssnit,
@@ -21,7 +21,8 @@ function taxCalculator(salary,allowance){
 
 }
 function computeTax(table,income, allowance, annual=false){
-  let taxableIncome = income, totalTax =0;
+  let taxableIncome = income, totalTax =0,
+  taxSteps=[];
     if(taxableIncome > 0){
     for(var row=0; row< table.length; row++){
         var [taxableAmount, taxRate]= table[row],
@@ -29,12 +30,19 @@ function computeTax(table,income, allowance, annual=false){
         ? taxableAmount : taxableIncome;
 
         var trancheTax = (taxable * taxRate)/100;
+        if(taxable) taxSteps.push({rate:taxRate, tax:trancheTax});
         totalTax += trancheTax;
         taxableIncome -=taxable;
     }
+    console.table(taxSteps);
 }
-    return {netIncome: (income-totalTax), taxDeduction:totalTax}
+    return {
+      netIncome: (income-totalTax),
+      taxDeduction:totalTax,
+      taxSteps:taxSteps,
+    }
 }
+
 
 function isPositiveNumber(number) {
   const positiveNumberRegex = /^[+]?([0-9]+(?:[.][0-9]*)?|\.[0-9]+)$/;

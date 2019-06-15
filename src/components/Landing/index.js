@@ -11,7 +11,8 @@ const initialiseState={
    taxDeduction:0,
    ssnitDeduction:0,
    netIncome:0,
-   yearCal:false
+   yearCal:false,
+   taxSteps:[],
 }
 const TaxContext = createContext(initialiseState);
 
@@ -22,19 +23,18 @@ class Calculator extends React.Component{
   }
 
   cashChange=({target})=>{
-    const { name, value } = target;
+    const { name, value, yearCal,taxSteps} = target;
     const {grossInput,allowanceInput}= this.state;
     const val = Number(value);
     const taxcal = name==="grossInput" ?
-     computeTax(val, allowanceInput)
-     :computeTax(grossInput, val);
+     computeTax(val, allowanceInput,yearCal)
+     :computeTax(grossInput, val,yearCal);
 
     this.setState({
       [name]:val,
       ...taxcal
     });
 
-   console.table(this.state);
 
   }
 
