@@ -15,7 +15,7 @@ function taxCalculator(salary,allowance){
   console.log(ssnit);
   const taxableIncome = (salary + allowance) - ssnit;
   return {
-  ssnit: ssnit,
+  ssnitDeduction: ssnit,
   ...computeTax(TAX_TABLE,taxableIncome),
   }
 
@@ -33,7 +33,7 @@ function computeTax(table,income, allowance, annual=false){
         taxableIncome -=taxable;
     }
 }
-    return {netIncome: (income-totalTax), tax:totalTax}
+    return {netIncome: (income-totalTax), taxDeduction:totalTax}
 }
 
 function isPositiveNumber(number) {
