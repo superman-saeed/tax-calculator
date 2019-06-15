@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import * as urls from "../../constants/route";
 
-//to display cash table
+//to display cash field
 export const Cash= ({title,hint,onchange,name})=>{
   return(
     <div className="cash-input">
@@ -26,13 +26,13 @@ export const AnnualChecker=({checker})=>{
 );
 }
 //to display tax and ssnit Deduction
-export const Deduction=({ssnit,tax, total,linkClick}) =>{
+export const Deduction=({ssnit,tax, netIncome,linkClick}) =>{
     return(
       <div>
       <div className="deductions">
       <span>SSNIT Deduction {ssnit}ghc</span><br/>
       <span>Tax Deduction {tax}ghc</span>
-      <h2> 360ghc </h2>
+      <h2 style={{color:"#2196F3"}}>Net Income : <span title="your take home">{netIncome}ghc</span></h2>
       <Link to={urls.INFO}>Details for calculation</Link>
       </div>
       </div>);
@@ -41,7 +41,7 @@ export const Deduction=({ssnit,tax, total,linkClick}) =>{
 export const Footer=()=>{
   return(
     <div style={{color:"red", textAlign:"center", marginTop:20}}>
-    Made with <span>&#128151;</span> by <a href="https://superman-saeed.github.io">Saeed</a>
+    Made with <span role="img" aria-label="love">&#128151;</span> by <a href="https://superman-saeed.github.io">Saeed</a>
     </div>
   )
 }

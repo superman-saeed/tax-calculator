@@ -1,7 +1,7 @@
-import React from "react";
+import React,{createContext} from "react";
 import Details from "../Details";
 import {Cash, AnnualChecker, Deduction} from "./partials";
-
+import computeTax from "../../lib/tax-calculator.js";
 
 
 const initialiseState={
@@ -13,6 +13,8 @@ const initialiseState={
    netIncome:0,
    yearCal:false
 }
+const TaxContext = createContext(initialiseState);
+
 class Calculator extends React.Component{
   constructor(props){
     super(props);
@@ -21,18 +23,34 @@ class Calculator extends React.Component{
 
   cashChange=({target})=>{
     const { name, value } = target;
+    const {grossInput,allowanceInput}= this.state;
     const val = Number(value);
+    const taxcal = name==="grossInput" ?
+     computeTax(val, allowanceInput)
+     :computeTax(grossInput, val);
+
     this.setState({
       [name]:val,
+      ...taxcal
     });
-    console.log(target.name);
+
+   console.table(this.state);
+
   }
+
   annualCheck=({target})=>{
      this.setState({yearCal:target.checked})
   }
   // to render app
   render(){
+
+    const {
+      taxDeduction,
+      ssnitDeduction,
+      netIncome } = this.state;
+
     return(
+      <TaxContext.Provider value={this.state}>
       <div className="input-layout">
         <h3>Tax calculator</h3>
         <div className="cal">
@@ -50,10 +68,19 @@ class Calculator extends React.Component{
         />
         </div>
         <AnnualChecker checker={this.annualCheck}/>
-        <Deduction tax={300} ssnit={140}/>
+
+        <Deduction
+        tax={taxDeduction}
+        ssnit={ssnitDeduction}
+        netIncome ={netIncome}
+         />
+
+
       </div>
+      </TaxContext.Provider>
     );
   }
 }
 
 export default Calculator;
+export const TaxConsumer = TaxContext.Consumer;
