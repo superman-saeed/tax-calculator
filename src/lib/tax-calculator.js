@@ -30,7 +30,7 @@ function computeTax(table,income, allowance, annual=false){
         ? taxableAmount : taxableIncome;
 
         var trancheTax = (taxable * taxRate)/100;
-        if(taxable) taxSteps.push({rate:taxRate, tax:trancheTax});
+        if(taxable) taxSteps.push({chargeable:taxable, rate:taxRate, tax:trancheTax});
         totalTax += trancheTax;
         taxableIncome -=taxable;
     }

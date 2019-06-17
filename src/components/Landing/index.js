@@ -1,86 +1,45 @@
-import React,{createContext} from "react";
-import Details from "../Details";
+import React from "react";
+import {InfoConsumer}  from "../App/context";
 import {Cash, AnnualChecker, Deduction} from "./partials";
-import computeTax from "../../lib/tax-calculator.js";
 
-
-const initialiseState={
-   grossInput:0,
-   allowanceInput:0,
-   annualChecker:false,
-   taxDeduction:0,
-   ssnitDeduction:0,
-   netIncome:0,
-   yearCal:false,
-   taxSteps:[],
-}
-const TaxContext = createContext(initialiseState);
 
 class Calculator extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = initialiseState;
-  }
 
-  cashChange=({target})=>{
-    const { name, value, yearCal,taxSteps} = target;
-    const {grossInput,allowanceInput}= this.state;
-    const val = Number(value);
-    const taxcal = name==="grossInput" ?
-     computeTax(val, allowanceInput,yearCal)
-     :computeTax(grossInput, val,yearCal);
-
-    this.setState({
-      [name]:val,
-      ...taxcal
-    });
-
-
-  }
-
-  annualCheck=({target})=>{
-     this.setState({yearCal:target.checked})
-  }
   // to render app
   render(){
-
-    const {
-      taxDeduction,
-      ssnitDeduction,
-      netIncome } = this.state;
+      const {cashChange, checker} =this.props;
 
     return(
-      <TaxContext.Provider value={this.state}>
+
       <div className="input-layout">
         <h3>Tax calculator</h3>
         <div className="cal">
         <Cash
-        onchange={this.cashChange}
+        onchange={cashChange}
         title="PAYE Gross Income* "
         name="grossInput"
         hint="cash income" />
 
         <Cash
-        onchange={this.cashChange}
+        onchange={cashChange}
         title="Allowance"
         name="allowanceInput"
         hint="cash,rent,fuel"
         />
         </div>
-        <AnnualChecker checker={this.annualCheck}/>
-
-        <Deduction
-        tax={taxDeduction}
-        ssnit={ssnitDeduction}
-        netIncome ={netIncome}
-         />
-
+        <AnnualChecker checker={checker}/>
+        <InfoConsumer>{(state)=>(
+          <Deduction
+          tax={state.taxDeduction}
+          ssnit={state.ssnitDeduction}
+          netIncome ={state.netIncome}
+           />
+        )}</InfoConsumer>
 
       </div>
-      </TaxContext.Provider>
+
     );
   }
 }
 
 export default Calculator;
-export const TaxConsumer = TaxContext.Consumer;

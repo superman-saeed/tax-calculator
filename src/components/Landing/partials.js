@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import * as urls from "../../constants/route";
 
+
 //to display cash field
 export const Cash= ({title,hint,onchange,name})=>{
   return(
@@ -29,12 +30,14 @@ export const AnnualChecker=({checker})=>{
 export const Deduction=({ssnit,tax, netIncome,linkClick}) =>{
     return(
       <div>
-      <div className="deductions">
-      <span>SSNIT Deduction {ssnit}ghc</span><br/>
-      <span>Tax Deduction {tax}ghc</span>
-      <h2 style={{color:"#2196F3"}}>Net Income : <span title="your take home">{netIncome}ghc</span></h2>
-      <Link to={urls.INFO}>Details for calculation</Link>
-      </div>
+
+        <div className="deductions">
+            <span>SSNIT Deduction {ssnit.toFixed(2)}ghc</span><br/>
+            <span>Tax Deduction {tax.toFixed(2)}ghc</span>
+            <h2 style={{color:"#2196F3"}}>Net Income : <span title="your take home">{netIncome.toFixed(2)}ghc</span></h2>
+            <Link to={urls.INFO}>Details for calculation</Link>
+        </div>
+
       </div>);
 }
 
