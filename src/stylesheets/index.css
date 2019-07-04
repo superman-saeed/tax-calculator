@@ -139,7 +139,7 @@ img{
 
 
 }
-.tax-table thead{
+.tax-table thead, tr:last-child{
    background-color: #ce1126;
    color: #fff;
 
