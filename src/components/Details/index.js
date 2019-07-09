@@ -27,7 +27,7 @@ const Details=()=>{
         <Rows list={state.taxSteps} />
         <tr>
         <td colSpan="2">Total Tax Deduction</td>
-        <td>{ state.taxDeduction }</td>
+        <td>{ (state.taxDeduction.toFixed(2)) }</td>
         </tr>
        </tbody>
        </table>
@@ -39,15 +39,14 @@ const Details=()=>{
 }
 const Rows=(props)=> {
   const {list} = props,
-  row = list.map((obj, key)=>(
+  row = list.map(({chargeable,rate,tax}, key)=>(
           <tr key={key}>
-          {key===0 && list.length === key ?<td>{`first ${obj.chargeable}`}</td>: <td>{`next ${obj.chargeable}`}</td>}
-          <td>{obj.rate}</td>
-          <td>{obj.tax}</td>
+          {key===0 ?<td>{`first ${chargeable.toFixed(2)}`}</td>: <td>{`next ${(chargeable.toFixed(2))}`}</td>}
+          <td>{rate}</td>
+          <td>{(tax.toFixed(2))}</td>
           </tr>
 
         ));
-  console.log(list.length);
   return row;
 }
 
