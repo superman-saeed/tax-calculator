@@ -29,6 +29,10 @@ const Details=()=>{
         <td colSpan="2">Total Tax Deduction</td>
         <td>{ (state.taxDeduction.toFixed(2)) }</td>
         </tr>
+        <tr>
+        <td colSpan="2">Expected Tax for 1 year(fixed Allowance and salary)</td>
+        <td>{ (state.taxDeduction * 12).toFixed(2) }</td>
+        </tr>
        </tbody>
        </table>
 
@@ -41,7 +45,10 @@ const Rows=(props)=> {
   const {list} = props,
   row = list.map(({chargeable,rate,tax}, key)=>(
           <tr key={key}>
-          {key===0 ?<td>{`first ${chargeable.toFixed(2)}`}</td>: <td>{`next ${(chargeable.toFixed(2))}`}</td>}
+          {key===0 ?
+              <td>{`first ${chargeable.toFixed(2)}`}</td>:
+              <td>{`next ${(chargeable.toFixed(2))}`}</td>
+        }
           <td>{rate}</td>
           <td>{(tax.toFixed(2))}</td>
           </tr>

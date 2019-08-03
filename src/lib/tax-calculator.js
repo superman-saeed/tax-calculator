@@ -8,6 +8,7 @@ const TAX_TABLE = [
 ]
 const SSNIT = 5.5/100;
 
+// For total cash deduction
 function taxCalculator(salary,allowance){
   if(!(isPositiveNumber(salary))) throw new Error("Expects a positive number as gross income");
   if(!(isPositiveNumber(allowance))) throw new Error("Expects a positive number as allowance");
@@ -20,8 +21,11 @@ function taxCalculator(salary,allowance){
   }
 
 }
-function computeTax(table,income, allowance, annual=false){
-  let taxableIncome = income, totalTax =0,
+
+//procedure to calcate tax deduction
+function computeTax(table,income, allowance){
+  let taxableIncome = income,
+  totalTax =0,
   taxSteps=[];
     if(taxableIncome > 0){
     for(var row=0; row< table.length; row++){

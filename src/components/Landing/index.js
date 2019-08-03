@@ -1,13 +1,13 @@
 import React from "react";
 import {InfoConsumer}  from "../App/context";
-import {Cash, AnnualChecker, Deduction} from "./partials";
+import {Cash, Deduction} from "./partials";
 
 
 class Calculator extends React.Component{
 
   // to render app
   render(){
-      const {cashChange, checker} =this.props;
+      const {cashChange} =this.props;
 
     return(
 
@@ -27,7 +27,7 @@ class Calculator extends React.Component{
         hint="cash,rent,fuel"
         />
         </div>
-        <AnnualChecker checker={checker}/>
+
         <InfoConsumer>{(state)=>(
           <Deduction
           tax={state.taxDeduction}

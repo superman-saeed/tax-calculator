@@ -1,7 +1,7 @@
 import React from "react";
 import Details from "../Details";
 import Landing from "../Landing";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
 import * as urls from "../../constants/route";
 import {Footer} from "../Landing/partials"
 import NoMatch from "../NotFound/index"
@@ -29,13 +29,13 @@ class App extends React.Component {
   cashChange=({target})=>{
     const { name, value, yearCal} = target;
     const {grossInput,allowanceInput}= this.state;
-    const val = Number(value);
-    const taxcal = name==="grossInput" ?
-     computeTax(val, allowanceInput,yearCal)
-     :computeTax(grossInput, val,yearCal);
+    const amt = Number(value);
+    const taxcal = name==="grossInput" ?  // check which input  has change
+     computeTax(amt, allowanceInput,yearCal)
+     :computeTax(grossInput, amt,yearCal);
 
     this.setState({
-      [name]:val,
+      [name]:amt,
       ...taxcal
     });
 
@@ -51,7 +51,8 @@ class App extends React.Component {
       <Router>
 
         <div className="calculator">
-         <span className="country"><img src={pic} alt="gh logo"></img> </span>
+         <span className="country">
+         <Link to="/"><img src={pic} alt="gh logo"></img></Link> </span>
             <Switch>
 
               <Route path={urls.LANDING} exact
